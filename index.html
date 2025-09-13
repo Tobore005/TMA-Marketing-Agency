@@ -11,13 +11,6 @@
         font-family: 'Inter', sans-serif;
         background: #f9fafb;
       }
-      .modern-section {
-        background: #fff;
-        border-radius: 1.25rem;
-        box-shadow: 0 4px 24px 0 rgba(0,0,0,0.07);
-        padding: 2.5rem 1.5rem;
-        margin-bottom: 2.5rem;
-      }
       .modern-title {
         color: #1d3557;
         font-weight: 800;
@@ -47,32 +40,48 @@
           <img src="images/logo.jpeg" alt="Logo" class="w-10 h-10 rounded-lg shadow-md" />
           <span class="font-bold text-xl modern-accent tracking-wide">TMA</span>
         </div>
-        <div class="flex space-x-8">
+        <!-- Hamburger for mobile -->
+        <button id="menu-btn" class="md:hidden text-2xl focus:outline-none" aria-label="Open Menu">&#9776;</button>
+        <div id="nav-links" class="hidden md:flex space-x-8">
           <a href="#home" class="text-gray-700 font-semibold hover:text-green-600 transition">Home</a>
           <a href="#about" class="text-gray-700 font-semibold hover:text-green-600 transition">About</a>
           <a href="#services" class="text-gray-700 font-semibold hover:text-green-600 transition">Services</a>
           <a href="#contact" class="text-gray-700 font-semibold hover:text-green-600 transition">Contact</a>
         </div>
       </div>
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+        <a href="#home" class="block py-2 text-gray-700 font-semibold hover:text-green-600 transition">Home</a>
+        <a href="#about" class="block py-2 text-gray-700 font-semibold hover:text-green-600 transition">About</a>
+        <a href="#services" class="block py-2 text-gray-700 font-semibold hover:text-green-600 transition">Services</a>
+        <a href="#contact" class="block py-2 text-gray-700 font-semibold hover:text-green-600 transition">Contact</a>
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const btn = document.getElementById('menu-btn');
+          const menu = document.getElementById('mobile-menu');
+          btn && btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+          });
+        });
+      </script>
     </nav>
 
-
-    <header class="relative bg-white py-20 px-6 overflow-hidden modern-section" style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);">
+    <header class="relative bg-white py-14 px-4 md:px-6 overflow-hidden">
       <div class="max-w-4xl mx-auto text-center relative z-10">
-        <img src="images/logo.jpeg" alt="Logo" class="mx-auto mb-6 w-24 md:w-28 rounded-2xl shadow-2xl" />
-        <h1 class="text-4xl md:text-6xl modern-title mb-4">Welcome to <span class="modern-accent">TMA</span> Marketing Agency</h1>
-        <p class="text-lg md:text-xl text-gray-600 mb-8">Helping brands grow with creative strategy and measurable results.</p>
+        <img src="images/logo.jpeg" alt="Logo" class="mx-auto mb-6 w-20 md:w-28 rounded-2xl shadow-2xl" />
+        <h1 class="text-3xl md:text-5xl modern-title mb-4">Welcome to <span class="modern-accent">TMA</span> Marketing Agency</h1>
+        <p class="text-base md:text-xl text-gray-600 mb-8">Helping brands grow with creative strategy and measurable results.</p>
         <a href="#contact" class="modern-btn">🚀 Get Started</a>
       </div>
     </header>
 
-
     <!-- Home Section -->
-    <section id="home" class="py-16 px-6 bg-white">
-      <h2 class="text-center text-3xl font-bold mb-10">OUR PPC METHODS ARE A MILE AWAY</h2>
+    <section id="home" class="py-10 px-4 md:px-6 bg-white">
+      <h2 class="text-center text-2xl md:text-3xl font-bold mb-6">OUR PPC METHODS ARE A MILE AWAY</h2>
       <div class="flex justify-center">
         <iframe
-          class="w-full max-w-4xl rounded-xl shadow-xl aspect-video"
+          class="w-full max-w-2xl rounded-xl shadow-xl aspect-video"
           src="https://www.youtube.com/embed/QsY8fnvMn6c?si=ABcafJJgFmi7AUmw"
           title="YouTube video player"
           frameborder="0"
@@ -82,11 +91,11 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="bg-gray-100 py-16 px-6">
-      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-        <img src="images/people.jpeg" alt="People" class="w-full rounded-xl shadow-md" />
+    <section id="about" class="bg-gray-100 py-10 px-4 md:px-6">
+      <div class="max-w-7xl mx-auto grid gap-8 md:grid-cols-2 items-center">
+        <img src="images/people.jpeg" alt="Our Team" class="w-full rounded-xl shadow-md mb-6 md:mb-0" />
         <div>
-          <blockquote class="text-xl text-gray-600 mb-6">
+          <blockquote class="text-lg md:text-xl text-gray-600 mb-4">
             "We have been in business for the past 50 years. Our mission is to help business owners reach their marketing potential."
           </blockquote>
           <p class="italic text-gray-500">Ighotobore Ayarah<br />CEO, Marketing Agency</p>
@@ -95,12 +104,12 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-16 px-6 bg-white">
-      <h2 class="text-center text-3xl font-bold text-blue-700 mb-12">OUR SERVICES</h2>
-      <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
-        <div class="bg-gray-100 p-6 rounded-xl shadow-lg transition transform hover:scale-105 hover:bg-green-50 hover:shadow-2xl duration-200 cursor-pointer">
-          <h3 class="text-xl font-semibold text-gray-700 mb-4">PPC</h3>
-          <img src="images/ppc.jpeg" alt="PPC" class="w-full rounded-md mb-4" />
+    <section id="services" class="py-10 px-4 md:px-6 bg-white">
+      <h2 class="text-center text-2xl md:text-3xl font-bold text-blue-700 mb-8">OUR SERVICES</h2>
+      <div class="max-w-7xl mx-auto grid gap-6 md:grid-cols-3">
+        <div class="bg-gray-100 p-5 rounded-xl shadow-lg transition transform hover:scale-105 hover:bg-green-50 hover:shadow-2xl duration-200 cursor-pointer">
+          <h3 class="text-lg md:text-xl font-semibold text-gray-700 mb-3">PPC</h3>
+          <img src="images/ppc.jpeg" alt="PPC Service" class="w-full rounded-md mb-3" />
           <ul class="text-gray-600 space-y-1 text-sm">
             <li>✅ Weekly Optimizations</li>
             <li>✅ Monthly Reports</li>
@@ -108,10 +117,9 @@
             <li>✅ Competitor Research</li>
           </ul>
         </div>
-
-        <div class="bg-gray-100 p-6 rounded-xl shadow-lg transition transform hover:scale-105 hover:bg-green-50 hover:shadow-2xl duration-200 cursor-pointer">
-          <h3 class="text-xl font-semibold text-gray-700 mb-4">Social Media</h3>
-          <img src="images/smm.jpeg" alt="Social Media" class="w-full rounded-md mb-4" />
+        <div class="bg-gray-100 p-5 rounded-xl shadow-lg transition transform hover:scale-105 hover:bg-green-50 hover:shadow-2xl duration-200 cursor-pointer">
+          <h3 class="text-lg md:text-xl font-semibold text-gray-700 mb-3">Social Media</h3>
+          <img src="images/smm.jpeg" alt="Social Media Service" class="w-full rounded-md mb-3" />
           <ul class="text-gray-600 space-y-1 text-sm">
             <li>🔥 FB Marketing</li>
             <li>🔥 TikTok Marketing</li>
@@ -119,10 +127,9 @@
             <li>✅ Competitor Research</li>
           </ul>
         </div>
-
-        <div class="bg-gray-100 p-6 rounded-xl shadow-lg transition transform hover:scale-105 hover:bg-green-50 hover:shadow-2xl duration-200 cursor-pointer">
-          <h3 class="text-xl font-semibold text-gray-700 mb-4">SEO</h3>
-          <img src="images/seo.jpeg" alt="SEO" class="w-full rounded-md mb-4" />
+        <div class="bg-gray-100 p-5 rounded-xl shadow-lg transition transform hover:scale-105 hover:bg-green-50 hover:shadow-2xl duration-200 cursor-pointer">
+          <h3 class="text-lg md:text-xl font-semibold text-gray-700 mb-3">SEO</h3>
+          <img src="images/seo.jpeg" alt="SEO Service" class="w-full rounded-md mb-3" />
           <ul class="text-gray-600 space-y-1 text-sm">
             <li>✅ Brand Awareness</li>
             <li>✅ Quality Traffic</li>
@@ -134,37 +141,34 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="bg-gray-100 py-16 px-6">
-      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
+    <section id="contact" class="bg-gray-100 py-10 px-4 md:px-6">
+      <div class="max-w-7xl mx-auto grid gap-8 md:grid-cols-2">
         <div class="space-y-6">
           <iframe
-            class="w-full h-64 rounded-xl shadow-md"
+            class="w-full h-56 md:h-64 rounded-xl shadow-md"
             src="https://www.google.com/maps/embed?pb=!1m18..."
             allowfullscreen=""
             loading="lazy"
           ></iframe>
           <div>
-            <h3 class="text-lg font-semibold mb-2">Hours of Operation</h3>
+            <h3 class="text-base md:text-lg font-semibold mb-2">Hours of Operation</h3>
             <p class="text-sm text-gray-600">
               Monday - Friday: 8:00am - 5:00pm WAT<br />
               Weekends: Closed
             </p>
           </div>
         </div>
-
-        <div class="bg-white p-6 rounded-xl shadow-md">
-          <h3 class="text-xl font-bold mb-4">Contact Us</h3>
-          <form action="action_page.php" class="space-y-4">
+        <div class="bg-white p-5 rounded-xl shadow-md">
+          <h3 class="text-lg md:text-xl font-bold mb-4">Contact Us</h3>
+          <form action="action_page.php" class="space-y-3">
             <div>
               <label for="fname" class="block text-sm font-medium">First Name</label>
               <input type="text" id="fname" name="firstname" placeholder="Your Name" class="w-full border rounded-md p-2" />
             </div>
-
             <div>
               <label for="lname" class="block text-sm font-medium">Last Name</label>
               <input type="text" id="lname" name="lastname" placeholder="Last Name" class="w-full border rounded-md p-2" />
             </div>
-
             <div>
               <label for="country" class="block text-sm font-medium">Country</label>
               <select id="country" name="country" class="w-full border rounded-md p-2">
@@ -176,34 +180,32 @@
                 <option value="Zimbabwe">Zimbabwe</option>
               </select>
             </div>
-
             <div>
               <label for="subject" class="block text-sm font-medium">Subject</label>
-              <textarea id="subject" name="subject" rows="4" placeholder="Write something..." class="w-full border rounded-md p-2"></textarea>
+              <textarea id="subject" name="subject" rows="3" placeholder="Write something..." class="w-full border rounded-md p-2"></textarea>
             </div>
-
-            <input type="submit" value="Submit" class="bg-green-500 text-white px-6 py-2 rounded-md hover:bg-green-600" />
+            <input type="submit" value="Submit" class="bg-green-500 text-white px-6 py-2 rounded-md hover:bg-green-600 w-full md:w-auto" />
           </form>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-gray-200 text-gray-600 py-6 px-4 mt-10">
-      <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-        <div class="flex items-center gap-3">
-          <img src="images/logo.jpeg" alt="Logo" class="w-8 h-8 rounded shadow" />
-          <span class="font-bold text-base modern-accent">TMA Marketing Agency</span>
+    <footer class="bg-white border-t border-gray-200 text-gray-600 py-4 px-4 mt-8">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 text-xs md:text-sm">
+        <div class="flex items-center gap-2 mb-2 md:mb-0">
+          <img src="images/logo.jpeg" alt="Logo" class="w-7 h-7 rounded shadow" />
+          <span class="font-bold modern-accent">TMA Marketing Agency</span>
         </div>
-        <nav class="flex gap-5">
+        <nav class="flex gap-3 mb-2 md:mb-0">
           <a href="#home" class="hover:text-green-600 transition">Home</a>
           <a href="#about" class="hover:text-green-600 transition">About</a>
           <a href="#services" class="hover:text-green-600 transition">Services</a>
           <a href="#contact" class="hover:text-green-600 transition">Contact</a>
         </nav>
         <div class="flex items-center gap-2">
-          <img src="images/googlepartner.jpeg" alt="Partner" class="w-16 h-6 object-contain" />
-          <span class="text-xs">&copy; 2024 TMA</span>
+          <img src="images/googlepartner.jpeg" alt="Partner" class="w-14 h-5 object-contain" />
+          <span class="">&copy; 2024 TMA</span>
         </div>
       </div>
     </footer>
